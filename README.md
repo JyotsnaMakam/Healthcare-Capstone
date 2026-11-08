@@ -1,6 +1,8 @@
 Domain: Healthcare
 
-# PharmEasy Healthcare Decision Intelligence — Capstone Project
+# Healthcare-Capstone
+
+## PharmEasy Healthcare Decision Intelligence — Capstone Project
 
 ## Project Context & Rules for AI Assistant
 - **Goal:** Build an end-to-end operations-analytics pipeline across 4 parts for PharmEasy (IIT Mandi AI & Data Science Minor).
