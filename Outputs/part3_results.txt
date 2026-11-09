@@ -1,0 +1,51 @@
+records = 800
+kmeans_features = months_registered, missed_visit_count_12m, copay_burden_ratio, avg_bill_inr_thousands, adherence_score
+kmeans_standardization = population standard deviation (ddof=0)
+kmeans_converged_K2 = 6
+kmeans_converged_K3 = 17
+kmeans_converged_K4 = 21
+kmeans_converged_K5 = 15
+kmeans_converged_K6 = 31
+wcss_K2 = 2265.5072
+wcss_K3 = 1604.8443
+wcss_K4 = 1496.6440
+wcss_K5 = 1325.3724
+wcss_K6 = 1253.0850
+elbow_condition = smallest K in {3,4,5} with WCSS(K)-WCSS(K+1) < 0.5*(WCSS(K-1)-WCSS(K))
+elbow_k = 3
+subsequent_task_cluster_count = 3
+segment_A_size = 322
+segment_B_size = 254
+segment_C_size = 224
+segment_A_mean_X3 = 0.2250
+segment_B_mean_X3 = 0.4534
+segment_C_mean_X3 = 0.7106
+single_clusters_at_cut = 4
+single_cut_height = 2.1000
+single_cut_members = E1; E4; E5; E2+E3+E6
+complete_clusters_at_cut = 2
+complete_cut_height = 5.4000
+complete_cut_members = E2+E3+E6; E1+E4+E5
+average_clusters_at_cut = 2
+average_cut_height = 4.2778
+average_cut_members = E2+E3+E6; E1+E4+E5
+pca_features = months_registered, missed_visit_count_12m, copay_burden_ratio, avg_bill_inr_thousands, adherence_score
+pca_standardization = sample standard deviation (ddof=1)
+pca_means = [32.2494  3.8988  0.4335 18.7998 53.2905]
+pca_sample_standard_deviations = [16.1959  2.3351  0.2330  9.8662 13.7468]
+pca_eigenvalues = [2.6136 1.1828 0.5114 0.4055 0.2867]
+pca_explained_variance_ratios = [0.5227 0.2366 0.1023 0.0811 0.0573]
+pca_cumulative_explained_variance_ratios = [0.5227 0.7593 0.8616 0.9427 1.0000]
+pca_loadings_rows_features_columns_PC1_to_PC5 = [[ 0.5317  0.1773 -0.2237  0.3683  0.7072]
+ [-0.4100  0.5056  0.4836  0.5844  0.0301]
+ [-0.5187 -0.2648  0.2122 -0.3467  0.7040]
+ [-0.2916  0.6934 -0.5609 -0.3426  0.0463]
+ [ 0.4418  0.4025  0.5970 -0.5340  0.0339]]
+pca_first_3_row_projections_rows_records_columns_PC1_to_PC5 = [[ 1.9008 -0.8537  0.2190 -0.3174  1.6344]
+ [-0.3505  1.9241  0.8088 -1.0227 -0.3339]
+ [-1.4382  1.4312  0.0985 -0.0746  0.3602]]
+segment_A_mean_PC1 = 1.7773
+segment_B_mean_PC1 = -0.7838
+segment_C_mean_PC1 = -1.6661
+segments_csv = outputs\part3_segments.csv
+hierarchical_csv = outputs\part3_hierarchical.csv
