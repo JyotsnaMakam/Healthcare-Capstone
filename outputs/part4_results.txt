@@ -1,0 +1,17 @@
+root_entropy = 0.7462
+root_gini = 0.3347
+best_split_by_info_gain = S4
+best_split_by_gini_gain = S4
+stump_rate_yes = 0.4574
+stump_rate_no = 0.0887
+round1_error = 0.2500
+round1_alpha = 0.5493
+round2_error = 0.1667
+round2_alpha = 0.8047
+ensemble_accuracy = 0.7500
+oob_fraction = 0.3676
+mlp_total = 13002
+cnn_total = 15734
+fc_layer_params = 50332672
+conv_layer_params = 1792
+rnn_total = 26768

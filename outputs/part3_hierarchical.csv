@@ -1,0 +1,16 @@
+linkage,merge_no,cluster_a,cluster_b,height
+single,1,E3,E6,1.3000
+single,2,E2,E3+E6,1.4000
+single,3,E4,E5,2.8000
+single,4,E1,E4+E5,2.9000
+single,5,E1+E4+E5,E2+E3+E6,3.4000
+complete,1,E3,E6,1.3000
+complete,2,E2,E3+E6,2.0000
+complete,3,E4,E5,2.8000
+complete,4,E1,E4+E5,2.9000
+complete,5,E1+E4+E5,E2+E3+E6,7.9000
+average,1,E3,E6,1.3000
+average,2,E2,E3+E6,1.7000
+average,3,E4,E5,2.8000
+average,4,E1,E4+E5,2.9000
+average,5,E1+E4+E5,E2+E3+E6,5.6556

@@ -9,6 +9,7 @@ import math
 import os
 import random
 
+
 # ---------------- DOMAIN SETTINGS (names only; they never touch the numbers) ----------------
 DOMAIN = "Healthcare"
 ID_PREFIX = "H"
@@ -37,11 +38,15 @@ P_B1 = [0.30, 0.55, 0.45]
 P_B2 = [0.60, 0.50, 0.40]
 
 
+
+
 def normal(rng):
     """One standard-normal draw from two uniform draws (Box-Muller)."""
     u1 = 1.0 - rng.random()
     u2 = rng.random()
     return math.sqrt(-2.0 * math.log(u1)) * math.cos(2.0 * math.pi * u2)
+
+
 
 
 def make_rows():
@@ -66,6 +71,8 @@ def make_rows():
         value = round(mu * math.exp(0.45 * normal(rng) - 0.45 * 0.45 / 2.0), 2)
         rows.append([ID_PREFIX + format(i + 1, "04d"), c1, c2, c3, c4, c5, b1, b2, outcome, value])
     return rows
+
+
 
 
 if __name__ == "__main__":

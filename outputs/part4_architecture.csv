@@ -1,0 +1,8 @@
+layer,parameters
+mlp_hidden1,12560
+mlp_hidden2,272
+mlp_output,170
+cnn_conv1,156
+cnn_conv2,2416
+cnn_dense1,12832
+cnn_dense2,330

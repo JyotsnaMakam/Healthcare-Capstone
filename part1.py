@@ -6,9 +6,7 @@ from pathlib import Path
 import numpy as np
 
 
-ROOT = Path(__file__).resolve().parent
-DATA_PATH = ROOT / "data" / "records.csv"
-OUTPUT_PATH = ROOT / "outputs" / "part1_results.txt"
+from capstone_io import DATA_PATH, write_results
 
 REQUIRED_COLUMNS = (
     "months_registered",
@@ -102,7 +100,7 @@ def main() -> None:
         "yes" if abs(tss - ess - rss) < 1e-6 * tss else "no"
     )
 
-    x4_sd = float(np.std(x4))
+    x4_sd = float(np.std(x4, ddof=1))
     if x4_sd == 0:
         raise ValueError("avg_bill_inr_thousands has zero variance.")
     z_x4 = (x4 - mean_x4) / x4_sd
@@ -139,6 +137,9 @@ def main() -> None:
     loglog_intercept = mean_log_value - loglog_slope * float(np.mean(log_x4))
     log_fitted = loglog_intercept + loglog_slope * log_x4
     _, _, _, loglog_r2, loglog_rmse, _ = regression_metrics(log_value, log_fitted)
+    log_indices = np.argsort(log_fitted, kind="stable")
+    lower_indices = log_indices[: n // 2]
+    upper_indices = log_indices[n // 2 :]
     log_residuals = log_value - log_fitted
     resid_sd_lower_log = float(np.std(log_residuals[lower_indices], ddof=1))
     resid_sd_upper_log = float(np.std(log_residuals[upper_indices], ddof=1))
@@ -156,7 +157,7 @@ def main() -> None:
             records["insured_flag"],
         )
     )
-    mr_beta = np.linalg.inv(design.T @ design) @ design.T @ log_value
+    mr_beta = np.linalg.solve(design.T @ design, design.T @ log_value)
     mr_fitted = design @ mr_beta
     _, _, _, mr_r2, _, _ = regression_metrics(log_value, mr_fitted)
     mr_adj_r2 = adjusted_r2(mr_r2, n, 7)
@@ -212,16 +213,7 @@ def main() -> None:
         "loglog_adj_r2": float(loglog_adj_r2),
     }
 
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with OUTPUT_PATH.open("w", encoding="utf-8", newline="\n") as output_file:
-        for key, result in results.items():
-            if isinstance(result, (int, np.integer)):
-                formatted = str(int(result))
-            elif isinstance(result, (float, np.floating)):
-                formatted = f"{result:.4f}"
-            else:
-                formatted = result
-            output_file.write(f"{key} = {formatted}\n")
+    write_results("part1_results.txt", results)
 
 
 if __name__ == "__main__":
